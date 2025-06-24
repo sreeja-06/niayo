@@ -1,0 +1,126 @@
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    initializeScrollEffects();
+
+    // Handle Get In Touch form submission
+    const serviceRequestForm = document.getElementById('serviceRequestForm');
+    if (serviceRequestForm) {
+        serviceRequestForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+            if (!name || !email || !phone || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, message })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    alert('Thank you! Your request has been submitted.');
+                    serviceRequestForm.reset();
+                } else {
+                    alert(result.error || 'An error occurred. Please try again.');
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }
+
+    // Load project cards
+    loadProjects();
+});
+
+// Scroll effects
+function initializeScrollEffects() {
+    const nav = document.querySelector('.floating-nav');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        // Add/remove background based on scroll position
+        if (currentScroll > 50) {
+            nav.style.background = 'rgba(0, 0, 0, 0.95)';
+        } else {
+            nav.style.background = 'rgba(0, 0, 0, 0.9)';
+        }
+
+        // Hide/show nav based on scroll direction
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            nav.style.transform = 'translate(-50%, -100%)';
+        } else {
+            nav.style.transform = 'translate(-50%, 0)';
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            // Only prevent default and handle scroll if href is not just "#"
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// Dynamic Project Cards Fetch
+function renderProjectCard(project) {
+    return `
+    <div class="project-card">
+        <div class="project-image">
+            <img src="${project.image_url}" alt="${project.name}">
+            <div class="project-overlay">
+                <div class="project-category">${project.tags[0] || ''}</div>
+            </div>
+        </div>
+        <div class="project-content">
+            <h3>${project.name}</h3>
+            <p>${project.description}</p>
+            <div class="project-tags">
+                ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
+            </div>
+            <a href="#" class="btn btn-primary">
+                View Project
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    `;
+}
+
+async function loadProjects() {
+    const grid = document.querySelector('.projects-grid');
+    if (!grid) return;
+    try {
+        const res = await fetch('http://127.0.0.1:5000/api/projects');
+        const projects = await res.json();
+        grid.innerHTML = projects.map(renderProjectCard).join('');
+    } catch (e) {
+        grid.innerHTML = '<p style="color:red">Failed to load projects.</p>';
+    }
+}
+
+// Export functions for use in other modules
+window.naiyo24 = {
+    initializeScrollEffects
+};

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Position - Naiyo24 Careers</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/jobs-internships-apply-form.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Navigation Bar -->
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="assets/images/naiyo24_logo.png" alt="Naiyo24 Logo" class="logo">
+                <span class="company-name">Naiyo24</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Services</a>
+                    <div class="dropdown-content">
+                        <a href="services/app-development.html">App Development</a>
+                        <a href="services/web-development.html">Web Development</a>
+                        <a href="services/servers-hosting.html">Servers & Hosting</a>
+                        <a href="services/professional-email.html">Professional Email</a>
+                        <a href="services/domain-registration.html">Domain Registration</a>
+                        <a href="services/marketing.html">Marketing</a>
+                        <a href="services/business-solution.html">Business Solution</a>
+                        <a href="services/logo-branding.html">Logo & Branding</a>
+                        <a href="services/company-incorporation.html">Company Incorporation</a>
+                        <a href="services/seo.html">SEO</a>
+                    </div>
+                </div>
+                <a href="jobs-internships.html" class="nav-link active">Careers</a>
+                <a href="index.html#ceo-desk" class="nav-link">CEO's Desk</a>
+                <a href="contactus.html" class="nav-link">Contact Us</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Application Form Section -->
+    <section class="application-section">
+        <div class="container">
+            <div class="application-grid">
+                <!-- Application Form -->
+                <div class="application-form-container">
+                    <div class="form-header">
+                        <h2>Apply for <span class="job-title">Senior Full Stack Developer</span></h2>
+                        <p class="form-subtitle">Join our team and help shape the future of technology</p>
+                    </div>
+                    <form id="applicationForm" class="application-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Current Location *</label>
+                            <input type="text" id="location" name="location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Years of Experience *</label>
+                            <input type="number" id="experience" name="experience" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentCTC">Current CTC (in LPA) *</label>
+                            <input type="number" id="currentCTC" name="currentCTC" min="0" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expectedCTC">Expected CTC (in LPA) *</label>
+                            <input type="number" id="expectedCTC" name="expectedCTC" min="0" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noticePeriod">Notice Period (in days) *</label>
+                            <input type="number" id="noticePeriod" name="noticePeriod" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="resume">Resume/CV *</label>
+                            <div class="file-upload">
+                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                                <label for="resume" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Choose File</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="portfolio">Portfolio Link (if any)</label>
+                            <input type="url" id="portfolio" name="portfolio">
+                        </div>
+                        <div class="form-group">
+                            <label for="coverLetter">Cover Letter</label>
+                            <textarea id="coverLetter" name="coverLetter" rows="4"></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#" class="terms-link">Terms & Conditions</a></label>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Submit Application</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Job Details -->
+                <div class="job-details-container">
+                    <div class="job-details-header">
+                        <h3>Job Details</h3>
+                        <span class="job-type">Full Time</span>
+                    </div>
+                    
+                    <div class="job-details-section">
+                        <h4><i class="fas fa-briefcase"></i> Job Description</h4>
+                        <div class="job-description">
+                            <p>We're looking for an experienced Full Stack Developer to join our growing team. You'll be responsible for developing and maintaining web applications using modern technologies.</p>
+                            <ul>
+                                <li>Design and implement scalable web applications</li>
+                                <li>Write clean, maintainable, and efficient code</li>
+                                <li>Collaborate with cross-functional teams</li>
+                                <li>Participate in code reviews and technical discussions</li>
+                                <li>Stay updated with emerging technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job-details-section">
+                        <h4><i class="fas fa-tools"></i> Required Skills</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+
+                    <div class="job-details-section">
+                        <h4><i class="fas fa-money-bill-wave"></i> Salary Structure</h4>
+                        <div class="salary-details">
+                            <div class="salary-item">
+                                <span class="salary-label">Base Salary</span>
+                                <span class="salary-value">₹12L - ₹18L per annum</span>
+                            </div>
+                            <div class="salary-item">
+                                <span class="salary-label">Performance Bonus</span>
+                                <span class="salary-value">Up to 20% of base salary</span>
+                            </div>
+                            <div class="salary-item">
+                                <span class="salary-label">Benefits</span>
+                                <ul class="benefits-list">
+                                    <li>Health Insurance</li>
+                                    <li>Flexible Working Hours</li>
+                                    <li>Remote Work Options</li>
+                                    <li>Learning & Development Budget</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-details-section">
+                        <h4><i class="fas fa-file-contract"></i> Terms & Conditions</h4>
+                        <div class="terms-content">
+                            <p>By applying for this position, you agree to the following terms:</p>
+                            <ul>
+                                <li>All information provided must be accurate and truthful</li>
+                                <li>We may conduct background checks</li>
+                                <li>Salary is negotiable based on experience</li>
+                                <li>Position is subject to company policies</li>
+                                <li>We reserve the right to modify the job description</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/naiyo24_logo.png" alt="Naiyo24 Logo">
+                        <div class="company-details">
+                            <h3>Naiyo24</h3>
+                            <p class="tagline">Where Innovation Meets Business</p>
+                        </div>
+                    </div>
+                    <p class="company-description">Leading IT solutions provider delivering innovative technology solutions that drive business growth and digital transformation.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" title="Medium"><i class="fab fa-medium-m"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services/app-development.html"><i class="fas fa-chevron-right"></i> App Development</a></li>
+                        <li><a href="services/web-development.html"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                        <li><a href="services/servers-hosting.html"><i class="fas fa-chevron-right"></i> Servers & Hosting</a></li>
+                        <li><a href="services/professional-email.html"><i class="fas fa-chevron-right"></i> Professional Email</a></li>
+                        <li><a href="services/domain-registration.html"><i class="fas fa-chevron-right"></i> Domain Registration</a></li>
+                        <li><a href="services/marketing.html"><i class="fas fa-chevron-right"></i> Marketing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="index.html#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="index.html#ceo-desk"><i class="fas fa-chevron-right"></i> CEO's Desk</a></li>
+                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="privacy-policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section contact-info">
+                    <h3>Contact Us</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i>1/30 Chittaranjan Colony, Baghajatin, Kolkata- 700032</p>
+                        <p><i class="fas fa-phone"></i> +91 6289171798</p>
+                        <p><i class="fas fa-envelope"></i> office@naiyo24.com</p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 12:00 PM - 6:30 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jobs-internships-apply-form.js"></script>
+</body>
+</html> 
