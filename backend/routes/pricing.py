@@ -12,14 +12,14 @@ pricing_bp = Blueprint('pricing', __name__)
 SERVICE_MODEL_MAP = {
     'app_dev': AppDevPricing,
     'web_dev': WebDevPricing,
-    'servers_hosting_service': ServersHostingPricing,
+    'servers_hosting': ServersHostingPricing,
     'company_incorporation': CompanyIncorporationPricing,
     'domain_registration': DomainRegistrationPricing,
     'logo_branding': LogoBrandingPricing,
     'marketing': MarketingPricing,
     'business_solutions': BusinessSolutionPricing,
     'market_research': MarketResearchPricing,
-    'pro-email': ProfessionalEmailPricing,
+    'pro_email': ProfessionalEmailPricing,
     'seo': SEOPricing,
 }
 

@@ -53,7 +53,7 @@ class WebDevPricing(db.Model):
 
 
 class ServersHostingPricing(db.Model):
-    __tablename__ = 'servers_hosting_service'
+    __tablename__ = 'servers_hosting'
     id = db.Column(db.Integer, primary_key=True)
     plan = db.Column(db.String(50), nullable=False)
     price = db.Column(db.String(50), nullable=False)
@@ -116,7 +116,7 @@ class MarketResearchPricing(db.Model):
 
 
 class ProfessionalEmailPricing(db.Model):
-    __tablename__ = 'proffessionalemail'
+    __tablename__ = 'pro_email'
     id = db.Column(db.Integer, primary_key=True)
     plan = db.Column(db.String(50), nullable=False)
     price = db.Column(db.String(50), nullable=False)
