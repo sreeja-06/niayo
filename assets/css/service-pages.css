@@ -318,22 +318,24 @@ body {
 }
 
 .currency {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    vertical-align: super;
     color: #2c3e50;
     margin-right: 5px;
 }
 
 .price {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: bold;
     color: #020203;
-    line-height: 1;
+    line-height: 1.1;
+    word-break: break-all;
 }
 
 .period {
     font-size: 1rem;
-    color: #6c757d;
-    margin-left: 5px;
+    color: #888;
+    margin-left: 2px;
 }
 
 .pricing-description {
@@ -1482,4 +1484,4 @@ body {
         right: 10px;
         bottom: 10px;
     }
-} 
+}
