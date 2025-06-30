@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize modal functionality
     initializeModals();
+
+    // Fetch and render jobs/internships dynamically
+    loadDepartments('all');
 });
 
 // Animation initialization
@@ -178,6 +181,102 @@ function handleFormSubmit(e) {
             </div>
         `;
     }, 1500);
+}
+
+// Fetch and render jobs/internships dynamically
+const BACKEND_URL = "http://localhost:5000";
+
+// Removed duplicate DOMContentLoaded event listener
+// Only call loadDepartments and setupFilterButtons once
+document.addEventListener('DOMContentLoaded', function() {
+    loadDepartments('all');
+});
+
+function setupFilterButtons() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            loadDepartments(this.dataset.filter);
+        });
+    });
+}
+
+function loadDepartments(type) {
+    const grid = document.querySelector('.careers-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    // Add or select an error message container
+    let errorDiv = document.querySelector('.careers-error');
+    if (!errorDiv) {
+        errorDiv = document.createElement('div');
+        errorDiv.className = 'careers-error';
+        errorDiv.style.color = 'red';
+        grid.parentNode.insertBefore(errorDiv, grid.nextSibling);
+    }
+    errorDiv.textContent = '';
+    let fetches = [];
+    let jobsLoaded = false;
+    if (type === 'all' || type === 'full-time') {
+        fetches.push(
+            fetch(`${BACKEND_URL}/api/departments/fulltime`)
+                .then(res => {
+                    if (!res.ok) throw new Error('Failed to fetch full-time jobs');
+                    return res.json();
+                })
+                .then(jobs => {
+                    if (jobs.length === 0) errorDiv.textContent += 'No full-time jobs found. ';
+                    jobs.forEach(job => grid.appendChild(createCareerCard(job, 'Full Time')));
+                    if (jobs.length > 0) jobsLoaded = true;
+                })
+                .catch(err => {
+                    errorDiv.textContent += err.message + ' ';
+                })
+        );
+    }
+    if (type === 'all' || type === 'internship') {
+        fetches.push(
+            fetch(`${BACKEND_URL}/api/departments/internship`)
+                .then(res => {
+                    if (!res.ok) throw new Error('Failed to fetch internships');
+                    return res.json();
+                })
+                .then(jobs => {
+                    if (jobs.length === 0) errorDiv.textContent += 'No internships found. ';
+                    jobs.forEach(job => grid.appendChild(createCareerCard(job, 'Internship')));
+                    if (jobs.length > 0) jobsLoaded = true;
+                })
+                .catch(err => {
+                    errorDiv.textContent += err.message + ' ';
+                })
+        );
+    }
+    Promise.all(fetches).then(() => {
+        if (!jobsLoaded && !errorDiv.textContent) {
+            errorDiv.textContent = 'No jobs found or failed to load data.';
+        }
+        initializeAnimations();
+        initializeFilters();
+        initializeModals();
+    });
+}
+
+function createCareerCard(job, jobType) {
+    const card = document.createElement('div');
+    card.className = 'career-card';
+    card.setAttribute('data-type', jobType === 'Full Time' ? 'full-time' : 'internship');
+    card.innerHTML = `
+        <div class="career-header">
+            <h3>${job.name}</h3>
+            <span class="job-type${jobType === 'Internship' ? ' intern' : ''}">${jobType}</span>
+        </div>
+        <div class="career-content">
+            <p class="job-description">${job.description}</p>
+            <div class="job-details"></div>
+            <a href="jobs-internships-apply-form.html" class="apply-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    `;
+    return card;
 }
 
 // Add smooth scroll behavior
