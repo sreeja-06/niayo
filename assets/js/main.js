@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add ripple effect to hero-section buttons
     addButtonRippleEffect();
+
+    // Load partner images
+    loadPartners();
 });
 
 // Scroll effects
@@ -142,6 +145,29 @@ function addButtonRippleEffect() {
             setTimeout(() => ripple.remove(), 600);
         });
     });
+}
+
+// Dynamic Partner Images Fetch
+function renderPartnerCard(image) {
+    return `
+    <div class="partner-card">
+        <div class="partner-logo">
+            <img src="${image.url}" alt="${image.description || image.filename}">
+        </div>
+    </div>
+    `;
+}
+
+async function loadPartners() {
+    const partnersTrack = document.querySelector('.partners-track');
+    if (!partnersTrack) return;
+    try {
+        const res = await fetch('/api/backend-images');
+        const images = await res.json();
+        partnersTrack.innerHTML = images.map(renderPartnerCard).join('');
+    } catch (e) {
+        partnersTrack.innerHTML = '<p style="color:red">Failed to load partners.</p>';
+    }
 }
 
 // Export functions for use in other modules

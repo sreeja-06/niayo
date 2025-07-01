@@ -8,3 +8,4 @@ class Config:
     PORT = 5501
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLASK_ENV = os.getenv('FLASK_ENV', 'production') 
+    UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'uploads') 

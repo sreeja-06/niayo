@@ -148,3 +148,16 @@ class ApplicationForm(db.Model):
     portfolio_link = db.Column(db.String(255), nullable=True)
     cover_letter = db.Column(db.Text, nullable=True)
     terms_accepted = db.Column(db.Boolean, nullable=False)
+
+
+class BackendImage(db.Model):
+    __tablename__ = 'backend_images'
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(255), nullable=False)
+    url = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+
+    def __init__(self, filename, url, description=None):
+        self.filename = filename
+        self.url = url
+        self.description = description

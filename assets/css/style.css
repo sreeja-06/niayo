@@ -1125,22 +1125,50 @@ section h2 {
 
 /* Partners Section Styles */
 .partners-section {
-    padding: 120px 0;
-    background: linear-gradient(135deg, #000000 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    padding: 100px 0;
     position: relative;
     overflow: hidden;
 }
 
-.partners-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    pointer-events: none;
+.partner-card {
+    background: rgba(255,255,255,0.08); /* glass effect */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transition: all 0.4s cubic-bezier(.4,2,.6,1);
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+.partner-card:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    background: rgba(255,255,255,0.16);
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Remove grayscale and contrast for original colors */
+    filter: none;
+    transition: all 0.4s cubic-bezier(.4,2,.6,1);
+    border-radius: 0;
+    padding: 0;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.partner-card:hover .partner-logo img {
+    filter: none;
+    transform: scale(1.08);
 }
 
 .partners-container {
@@ -1156,49 +1184,6 @@ section h2 {
     padding: 20px 0;
     animation: scrollPartners 30s linear infinite;
     width: max-content;
-}
-
-.partner-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    flex: 0 0 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.partner-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-}
-
-.partner-logo {
-    width: 100%;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.partner-logo img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: grayscale(100%) contrast(1.2);
-    transition: all 0.4s ease;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.partner-card:hover .partner-logo img {
-    filter: grayscale(0%) contrast(1);
-    transform: scale(1.1);
 }
 
 @keyframes scrollPartners {
