@@ -1,0 +1,208 @@
+/* Modern About Us Section Styles */
+/* Black, White, and Grey Modern About Us Section Styles */
+.about-modern-container {
+    position: relative;
+    background: #18181b;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+.about-modern-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, #232326 0%, #18181b 100%);
+    opacity: 0.92;
+    z-index: 1;
+}
+.about-modern-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3rem 2rem 2rem 2rem;
+    color: #fff;
+    gap: 2.5rem;
+}
+.about-modern-left, .about-modern-right {
+    flex: 1 1 320px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-modern-header .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+.gradient-text {
+    background: linear-gradient(90deg, #fff 0%, #bdbdbd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #fff;
+}
+.about-modern-header .highlight {
+    color: #bdbdbd;
+}
+.about-modern-description {
+    margin: 1.5rem 0 1.5rem 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+}
+.service-list-modern {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+.service-list-modern li {
+    margin-bottom: 0.7rem;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: #bdbdbd;
+    font-weight: 500;
+}
+.service-list-modern li i {
+    color: #fff;
+    font-size: 1.2rem;
+    background: #232326;
+    border-radius: 50%;
+    padding: 0.3rem;
+}
+.about-modern-mv {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.mv-card {
+    background: rgba(30,30,32,0.98);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+    padding: 1.2rem 1.5rem;
+    flex: 1 1 180px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border-left: 4px solid #bdbdbd;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.mv-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 8px 32px 0 rgba(189,189,189,0.15);
+}
+.mv-icon {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-right: 0.5rem;
+    background: #232326;
+    border-radius: 50%;
+    padding: 0.3rem 0.5rem;
+}
+.mv-content h4 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.2rem;
+    color: #bdbdbd;
+    font-weight: 700;
+}
+.mv-content p {
+    margin: 0;
+    color: #e0e0e0;
+    font-size: 1rem;
+    opacity: 0.92;
+}
+.about-modern-right {
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.about-modern-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+.stat-modern-card {
+    background: rgba(40,40,44,0.98);
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+    border-top: 3px solid #bdbdbd;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.stat-modern-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(189,189,189,0.15);
+    transform: scale(1.04);
+}
+.stat-modern-icon {
+    font-size: 2rem;
+    color: #bdbdbd;
+    margin-bottom: 0.5rem;
+}
+.stat-modern-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+}
+.stat-modern-label {
+    font-size: 1rem;
+    color: #bdbdbd;
+    font-weight: 600;
+    margin-top: 0.2rem;
+}
+.about-modern-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.modern-btn {
+    font-size: 1.1rem;
+    padding: 0.7rem 2rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn-primary.modern-btn {
+    background: #232326;
+    color: #fff;
+    border: none;
+}
+.btn-primary.modern-btn:hover {
+    background: #bdbdbd;
+    color: #18181b;
+    box-shadow: 0 4px 16px 0 rgba(189,189,189,0.15);
+}
+.btn-outline.modern-btn {
+    background: transparent;
+    border: 2px solid #bdbdbd;
+    color: #bdbdbd;
+}
+.btn-outline.modern-btn:hover {
+    background: #bdbdbd;
+    color: #18181b;
+}
+@media (max-width: 900px) {
+    .about-modern-content {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem 1.5rem 1rem;
+    }
+    .about-modern-right {
+        align-items: flex-start;
+    }
+    .about-modern-mv {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
