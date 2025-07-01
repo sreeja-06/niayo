@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Job - Naiyo24</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/careers.css">
+    <link rel="stylesheet" href="assets/css/careers-apply-form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar (same as careers.html) -->
+    <nav class="floating-nav">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="assets/images/naiyo24_logo.png" alt="Naiyo24 Logo" class="logo">
+                <span class="company-name">Naiyo24</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#ceo-desk" class="nav-link">CEO's Desk</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
+                <a href="careers.html" class="nav-link active">Careers</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Cover Section -->
+    <section class="service-hero apply-hero">
+        <div class="container">
+            <h1>Apply for Your Dream Role</h1>
+            <p class="service-tagline">Take the next step in your career journey with Naiyo24. We're excited to learn more about you!</p>
+        </div>
+    </section>
+
+    <section class="apply-form-section">
+        <div class="apply-form-grid-container">
+            <div class="apply-form-left">
+                <div class="apply-form-title">Apply for <span id="job-title">Job Title</span></div>
+                <form class="apply-form" enctype="multipart/form-data">
+                    <label for="applicant-name">Name</label>
+                    <input type="text" id="applicant-name" name="name" required>
+                    <label for="applicant-email">Email</label>
+                    <input type="email" id="applicant-email" name="email" required>
+                    <label for="applicant-phone">Phone No</label>
+                    <input type="tel" id="applicant-phone" name="phone" required>
+                    <label for="applicant-experience">Experience</label>
+                    <input type="text" id="applicant-experience" name="experience" placeholder="e.g. 2 years, Fresher" required>
+                    <label for="applicant-mode">Mode Applying For</label>
+                    <select id="applicant-mode" name="mode" required>
+                        <option value="">Select mode</option>
+                        <option value="Remote">Remote</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="Onsite">Onsite</option>
+                    </select>
+                    <label for="applicant-cv">CV</label>
+                    <input type="file" id="applicant-cv" name="cv" accept=".pdf,.doc,.docx" required>
+                    <label for="applicant-message">Message</label>
+                    <textarea id="applicant-message" name="message" rows="4" placeholder="Tell us why you're a great fit..."></textarea>
+                    <button type="submit">Submit Application</button>
+                </form>
+            </div>
+            <div class="apply-form-right">
+                <div class="job-details-section">
+                    <h4>Job Description</h4>
+                    <p id="job-description">Loading job description...</p>
+                    <h4>Required Skills</h4>
+                    <ul id="job-skills">
+                        <li>Loading required skills...</li>
+                    </ul>
+                    <div class="job-contact-info">
+                        <div class="job-location-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=your-location-embed-code" frameborder="0" allowfullscreen="" loading="lazy" style="width:100%;height:180px;border-radius:10px;margin-bottom:18px;"></iframe>
+                        </div>
+                        <div class="job-contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> 1/30 Chittaranjan Colony, Baghajatin, Kolkata- 700032</p>
+                            <p><i class="fas fa-phone"></i> +91 6289171798</p>
+                            <p><i class="fas fa-envelope"></i> office@naiyo24.com</p>
+                            <p><i class="fas fa-clock"></i> Mon - Sat: 12:00 PM - 6:30 PM</p>
+                            <div class="job-social-links">
+                                <a href="#" class="job-social-link" title="Facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                                <a href="#" class="job-social-link" title="Twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                                <a href="#" class="job-social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+                                <a href="#" class="job-social-link" title="Instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                                <a href="#" class="job-social-link" title="YouTube"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+                                <a href="#" class="job-social-link" title="GitHub"><i class="fab fa-github"></i><span>GitHub</span></a>
+                                <a href="#" class="job-social-link" title="Medium"><i class="fab fa-medium-m"></i><span>Medium</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as careers.html) -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <div class="footer-logo">
+                        <img src="assets/images/naiyo24_logo.png" alt="Naiyo24 Logo">
+                        <div class="company-details">
+                            <h3>Naiyo24</h3>
+                            <p class="tagline">Where Innovation Meets Business</p>
+                        </div>
+                    </div>
+                    <p class="company-description">Leading IT solutions provider delivering innovative technology solutions that drive business growth and digital transformation.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="social-label">Facebook</span>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span class="social-label">Twitter</span>
+                        </a>
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="social-label">LinkedIn</span>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span class="social-label">Instagram</span>
+                        </a>
+                        <a href="#" class="social-link" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                            <span class="social-label">YouTube</span>
+                        </a>
+                        <a href="#" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                            <span class="social-label">GitHub</span>
+                        </a>
+                        <a href="#" class="social-link" title="Medium">
+                            <i class="fab fa-medium-m"></i>
+                            <span class="social-label">Medium</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services/app-development.html"><i class="fas fa-chevron-right"></i> App Development</a></li>
+                        <li><a href="services/web-development.html"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                        <li><a href="services/servers-hosting.html"><i class="fas fa-chevron-right"></i> Servers & Hosting</a></li>
+                        <li><a href="services/professional-email.html"><i class="fas fa-chevron-right"></i> Professional Email</a></li>
+                        <li><a href="services/domain-registration.html"><i class="fas fa-chevron-right"></i> Domain Registration</a></li>
+                        <li><a href="services/marketing.html"><i class="fas fa-chevron-right"></i> Marketing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#ceo-desk"><i class="fas fa-chevron-right"></i> CEO's Desk</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="privacy-policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section contact-info">
+                    <h3>Contact Us</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i>1/30 Chittaranjan Colony, Baghajatin, Kolkata- 700032</p>
+                        <p><i class="fas fa-phone"></i> +91 6289171798</p>
+                        <p><i class="fas fa-envelope"></i> office@naiyo24.com</p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 12:00 PM - 6:30 PM</p>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Naiyo24 Private Limited. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="terms.html">Terms & Conditions</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="sitemap.html">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/careers-apply-form.js"></script>
+</body>
+</html>
