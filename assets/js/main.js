@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load project cards
     loadProjects();
+
+    // Add ripple effect to hero-section buttons
+    addButtonRippleEffect();
 });
 
 // Scroll effects
@@ -118,6 +121,27 @@ async function loadProjects() {
     } catch (e) {
         grid.innerHTML = '<p style="color:red">Failed to load projects.</p>';
     }
+}
+
+// Add ripple effect to hero-section buttons
+function addButtonRippleEffect() {
+    document.querySelectorAll('.cta-buttons .btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            // Remove any existing ripple
+            const oldRipple = this.querySelector('.ripple');
+            if (oldRipple) oldRipple.remove();
+            // Create ripple
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
 }
 
 // Export functions for use in other modules

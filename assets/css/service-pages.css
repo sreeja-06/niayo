@@ -1485,3 +1485,92 @@ body {
         bottom: 10px;
     }
 }
+
+/* Modern Stylish Buttons for Hero Section */
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 16px 38px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(.4,2,.6,1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(76, 175, 80, 0.18);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #45a049 0%, #4CAF50 100%);
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(76, 175, 80, 0.22);
+    transform: translateY(-3px) scale(1.04);
+}
+
+.btn-secondary {
+    background: linear-gradient(90deg, #232526 0%, #414345 100%);
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(33, 37, 41, 0.18);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(90deg, #414345 0%, #232526 100%);
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(33, 37, 41, 0.22);
+    transform: translateY(-3px) scale(1.04);
+}
+
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+}
+.hover-lift:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+
+.glass-effect {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    padding: 18px 28px;
+    display: inline-flex;
+    gap: 20px;
+}
+
+.btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    transform: scale(0);
+    animation: ripple-effect 0.6s linear;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
