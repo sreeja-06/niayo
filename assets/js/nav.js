@@ -6,35 +6,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Services dropdown functionality
 function initializeServicesDropdown() {
+    // Responsive dropdown: handle click for all devices, keyboard for accessibility
     const servicesLink = document.querySelector('.nav-dropdown .nav-link');
     const dropdownContent = document.querySelector('.dropdown-content');
-    let isDropdownVisible = false;
-
-    if (servicesLink && dropdownContent) {
-        // Toggle dropdown on click
+    const servicesDropdown = document.querySelector('.nav-dropdown');
+    let isDropdownOpen = false;
+    if (servicesLink && dropdownContent && servicesDropdown) {
+        // Toggle dropdown on click/tap for all devices
         servicesLink.addEventListener('click', (e) => {
             e.preventDefault();
-            isDropdownVisible = !isDropdownVisible;
-            dropdownContent.style.display = isDropdownVisible ? 'block' : 'none';
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-dropdown')) {
-                isDropdownVisible = false;
+            e.stopPropagation();
+            isDropdownOpen = !isDropdownOpen;
+            servicesDropdown.classList.toggle('active');
+            if (isDropdownOpen) {
+                dropdownContent.style.display = 'flex';
+            } else {
                 dropdownContent.style.display = 'none';
             }
         });
-
-        // Handle keyboard navigation
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-dropdown')) {
+                isDropdownOpen = false;
+                servicesDropdown.classList.remove('active');
+                dropdownContent.style.display = 'none';
+            }
+        });
+        // Keyboard navigation for accessibility
         servicesLink.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                isDropdownVisible = !isDropdownVisible;
-                dropdownContent.style.display = isDropdownVisible ? 'block' : 'none';
+                isDropdownOpen = !isDropdownOpen;
+                servicesDropdown.classList.toggle('active');
+                if (isDropdownOpen) {
+                    dropdownContent.style.display = 'flex';
+                } else {
+                    dropdownContent.style.display = 'none';
+                }
             }
         });
-
         // Add keyboard navigation for dropdown items
         const dropdownItems = dropdownContent.querySelectorAll('a');
         dropdownItems.forEach((item, index) => {
@@ -49,7 +59,8 @@ function initializeServicesDropdown() {
                     if (prevItem) prevItem.focus();
                 } else if (e.key === 'Escape') {
                     e.preventDefault();
-                    isDropdownVisible = false;
+                    isDropdownOpen = false;
+                    servicesDropdown.classList.remove('active');
                     dropdownContent.style.display = 'none';
                     servicesLink.focus();
                 }
@@ -64,7 +75,10 @@ function initializeMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     const navItems = document.querySelectorAll('.nav-links a');
     const servicesDropdown = document.querySelector('.nav-dropdown');
+    const servicesLink = servicesDropdown ? servicesDropdown.querySelector('.nav-link') : null;
+    const dropdownContent = servicesDropdown ? servicesDropdown.querySelector('.dropdown-content') : null;
     let isMenuOpen = false;
+    let isDropdownOpen = false;
 
     if (mobileMenuBtn && navLinks) {
         // Toggle mobile menu
@@ -74,7 +88,6 @@ function initializeMobileMenu() {
             isMenuOpen = !isMenuOpen;
             navLinks.classList.toggle('active');
             mobileMenuBtn.setAttribute('aria-expanded', isMenuOpen);
-            
             // Toggle icon
             const icon = mobileMenuBtn.querySelector('i');
             if (icon) {
@@ -83,50 +96,30 @@ function initializeMobileMenu() {
             }
         });
 
-        // Handle services dropdown in mobile view
-        if (servicesDropdown) {
-            const servicesLink = servicesDropdown.querySelector('.nav-link');
-            const dropdownContent = servicesDropdown.querySelector('.dropdown-content');
-
-            servicesLink.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    servicesDropdown.classList.toggle('active');
-                }
-            });
-        }
-
-        // Close menu when clicking outside
+        // Close menu when clicking outside (but not dropdown, handled above)
         document.addEventListener('click', (e) => {
             if (isMenuOpen && !e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-btn')) {
                 isMenuOpen = false;
                 navLinks.classList.remove('active');
                 mobileMenuBtn.setAttribute('aria-expanded', false);
-                
                 // Reset icon
                 const icon = mobileMenuBtn.querySelector('i');
                 if (icon) {
                     icon.classList.remove('fa-times');
                     icon.classList.add('fa-bars');
                 }
-
-                // Close any open dropdowns
-                if (servicesDropdown) {
-                    servicesDropdown.classList.remove('active');
-                }
             }
         });
 
-        // Handle navigation link clicks
+        // Handle navigation link clicks (except dropdown toggles)
         navItems.forEach(item => {
-            if (!item.closest('.dropdown-content')) {
+            // Only close menu if not a dropdown toggle
+            if (!item.closest('.dropdown-content') && !item.closest('.nav-dropdown')) {
                 item.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
+                    if (window.innerWidth <= 1024) {
                         isMenuOpen = false;
                         navLinks.classList.remove('active');
                         mobileMenuBtn.setAttribute('aria-expanded', false);
-                        
                         // Reset icon
                         const icon = mobileMenuBtn.querySelector('i');
                         if (icon) {
@@ -146,7 +139,7 @@ window.addEventListener('resize', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const servicesDropdown = document.querySelector('.nav-dropdown');
     
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1024) {
         navLinks.classList.remove('active');
         if (mobileMenuBtn) {
             mobileMenuBtn.setAttribute('aria-expanded', false);

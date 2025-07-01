@@ -1,3 +1,187 @@
+/* --- Modern & Stylish Jobs/Internships Card Styles --- */
+.careers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: stretch;
+    padding: 2rem 0;
+}
+
+.career-card {
+    background: linear-gradient(135deg, #f0f4ff 60%, #e0e7ff 100%);
+    border-radius: 2rem;
+    box-shadow: 0 8px 32px rgba(60, 72, 100, 0.13), 0 1.5px 8px rgba(60, 72, 100, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 320px;
+    max-width: 370px;
+    width: 100%;
+    margin: 1rem;
+    transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+    position: relative;
+    border: 2px solid #a3a3a4;
+}
+.career-card:hover {
+    transform: translateY(-8px) scale(1.025);
+    box-shadow: 0 16px 48px rgba(60, 72, 100, 0.18), 0 2px 12px rgba(60, 72, 100, 0.10);
+    border-color: #aaaaab;
+}
+
+.career-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 2rem 1.5rem 1rem 1.5rem;
+}
+.career-icon {
+    background: linear-gradient(135deg, #5a5a5a 60%, #e0e0e0 100%);
+    color: #fff;
+    border-radius: 1.2rem;
+    padding: 1.1rem 1.2rem;
+    font-size: 2.2rem;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.career-title h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #2d3651;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+.career-title .job-type {
+    display: inline-block;
+    background: #000000;
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.85rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    margin-top: 0.4rem;
+    letter-spacing: 0.02em;
+}
+.career-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.job-description {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 1.1rem;
+    min-height: 60px;
+    font-weight: 500;
+}
+.job-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.2rem;
+    margin-bottom: 1.2rem;
+    color: #6366f1;
+    font-size: 0.98rem;
+    font-weight: 600;
+}
+.career-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+}
+
+
+.career-footer .btn,
+.career-footer .apply-btn {
+    background: #111;
+    color: #fff !important;
+    font-weight: 900;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.85rem 2.5rem;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    cursor: pointer;
+    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border-bottom: none;
+}
+.career-footer .btn:hover,
+.career-footer .apply-btn:hover {
+    background: #fff;
+    color: #111 !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    border: 2px solid #111;
+    transform: translateY(-2px) scale(1.06);
+}
+
+/* Black & White Card Theme */
+.career-card {
+    background: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 1.5px 8px rgba(0,0,0,0.08);
+    border: 2px solid #111;
+    color: #111;
+}
+.career-card:hover {
+    border-color: #000;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.18), 0 2px 12px rgba(0,0,0,0.10);
+}
+.career-header {
+    background: #111;
+    color: #fff;
+    border-bottom: 1px solid #111;
+}
+.career-title h3 {
+    color: #fff;
+}
+.career-title .job-type {
+    background: #fff;
+    color: #111;
+    font-weight: 700;
+    border: 1px solid #111;
+}
+.career-icon {
+    background: #fff;
+    color: #111;
+    border: 2px solid #111;
+}
+.career-content {
+    background: #fff;
+    color: #111;
+}
+.job-description {
+    color: #222;
+}
+.job-details {
+    color: #111;
+}
+.job-details i {
+    color: #111;
+}
+
+@media (max-width: 900px) {
+    .careers-grid {
+        gap: 1.2rem;
+        padding: 1rem 0;
+    }
+    .career-card {
+        min-width: 90vw;
+        max-width: 98vw;
+        margin: 0.5rem auto;
+    }
+    .career-header, .career-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
 /* Premium Variables */
 :root {
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -12,7 +196,7 @@
 
 /* Hero Section Enhancement */
 .careers-hero {
-    background: var(--gradient-overlay), url('../images/careers-bg.jpg');
+    background: var(--gradient-overlay), url('../images/naiyo24_logo.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -160,7 +344,7 @@
 
 .career-header h3 {
     margin: 0 0 15px 0;
-    color: var(--primary-color);
+    color: #fff !important;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;

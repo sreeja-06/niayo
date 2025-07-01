@@ -1,3 +1,164 @@
+/* --- Modern & Stylish Project Card Styles --- */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: stretch;
+    padding: 2rem 0;
+}
+
+.project-card {
+    background: linear-gradient(135deg, #f8fafc 60%, #e0e7ff 100%);
+    border-radius: 2rem;
+    box-shadow: 0 8px 32px rgba(60, 72, 100, 0.13), 0 1.5px 8px rgba(60, 72, 100, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 320px;
+    max-width: 370px;
+    width: 100%;
+    margin: 1rem;
+    transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+    position: relative;
+}
+.project-card:hover {
+    transform: translateY(-8px) scale(1.025);
+    box-shadow: 0 16px 48px rgba(60, 72, 100, 0.18), 0 2px 12px rgba(60, 72, 100, 0.10);
+}
+
+.project-card .project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    box-shadow: 0 2px 12px rgba(60, 72, 100, 0.08);
+}
+
+.project-card .project-content {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-card .project-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #2d3651;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+}
+
+.project-card .project-description {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 1.1rem;
+    min-height: 60px;
+}
+
+.project-card .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+.project-card .project-tag {
+    background: #6366f1;
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.85rem;
+    border-radius: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    box-shadow: 0 1px 4px rgba(99,102,241,0.08);
+}
+
+.project-card .view-project-btn {
+    margin-top: auto;
+    background: linear-gradient(90deg, #000000 60%, #c0c0c0 100%);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 2.2rem;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+    cursor: pointer;
+    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+    outline: none;
+    display: inline-block;
+}
+.project-card .view-project-btn:hover {
+    background: linear-gradient(90deg, #818cf8 60%, #6366f1 100%);
+    box-shadow: 0 4px 16px rgba(99,102,241,0.16);
+    transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 900px) {
+    .projects-grid {
+        gap: 1.2rem;
+        padding: 1rem 0;
+    }
+    .project-card {
+        min-width: 90vw;
+        max-width: 98vw;
+        margin: 0.5rem auto;
+    }
+    .project-card .project-content {
+        padding: 1.2rem 1rem 1rem 1rem;
+    }
+}
+/* --- Fix for View Project button visibility in project cards --- */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 320px;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    overflow: visible;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-card .project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.project-card .view-project-btn {
+    margin-top: 2rem;
+    width: fit-content;
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+    .project-card .view-project-btn {
+        margin-top: 1rem;
+        width: 100%;
+        align-self: stretch;
+    }
+}
 /* Global Styles */
 :root {
     --primary-color: #000000;
