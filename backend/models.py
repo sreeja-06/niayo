@@ -133,22 +133,6 @@ class SEOPricing(db.Model):
     description = db.Column(db.Text, nullable=True)
 
 
-class ApplicationForm(db.Model):
-    __tablename__ = 'application_form'
-    id = db.Column(db.Integer, primary_key=True)
-    full_name = db.Column(db.String(255), nullable=False)
-    email_address = db.Column(db.String(255), nullable=False)
-    phone_number = db.Column(db.String(30), nullable=False)
-    current_location = db.Column(db.String(255), nullable=False)
-    years_of_experience = db.Column(db.Integer, nullable=False)
-    current_ctc_lpa = db.Column(db.Numeric(10, 2), nullable=False)
-    expected_ctc_lpa = db.Column(db.Numeric(10, 2), nullable=False)
-    notice_period_days = db.Column(db.Integer, nullable=False)
-    resume_file = db.Column(db.String(255), nullable=False)
-    portfolio_link = db.Column(db.String(255), nullable=True)
-    cover_letter = db.Column(db.Text, nullable=True)
-    terms_accepted = db.Column(db.Boolean, nullable=False)
-
 
 class BackendImage(db.Model):
     __tablename__ = 'backend_images'
