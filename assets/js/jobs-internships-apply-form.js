@@ -316,7 +316,6 @@ function shakeElement(element) {
 
 function handleFormSubmit(e) {
     e.preventDefault();
-    
     const form = e.target;
     const inputs = form.querySelectorAll('input, textarea');
     let isValid = true;
@@ -339,18 +338,34 @@ function handleFormSubmit(e) {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
     submitBtn.disabled = true;
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Submitted Successfully!';
-        showNotification('Your application has been submitted successfully!', 'success');
-        
-        // Reset form after success
-        setTimeout(() => {
-            form.reset();
+    // Prepare form data for AJAX
+    const formData = new FormData(form);
+
+    fetch('http://127.0.0.1:5000/api/apply', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Submitted Successfully!';
+            showNotification('Your application has been submitted successfully!', 'success');
+            setTimeout(() => {
+                form.reset();
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }, 2000);
+        } else {
+            showNotification(data.message || 'Submission failed', 'error');
             submitBtn.innerHTML = originalBtnText;
             submitBtn.disabled = false;
-        }, 2000);
-    }, 2000);
+        }
+    })
+    .catch(() => {
+        showNotification('An error occurred. Please try again.', 'error');
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+    });
 }
 
 // File Upload Functions
