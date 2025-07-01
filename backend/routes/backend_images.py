@@ -40,4 +40,8 @@ def get_backend_images():
 @backend_images_bp.route('/api/backend-images/<filename>', methods=['GET'])
 def serve_backend_image(filename):
     upload_folder = current_app.config['UPLOAD_FOLDER']
-    return send_from_directory(upload_folder, filename) 
+    return send_from_directory(upload_folder, filename)
+
+@backend_images_bp.route('/api/backend-images/test', methods=['GET'])
+def test_backend_images():
+    return jsonify({'status': 'ok'}) 

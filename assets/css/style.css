@@ -66,7 +66,7 @@
     margin-bottom: 1.2rem;
 }
 .project-card .project-tag {
-    background: #6366f1;
+    background: #000000;
     color: #fff;
     font-size: 0.85rem;
     padding: 0.25rem 0.85rem;
@@ -2690,39 +2690,6 @@ section h2 {
         width: 100%;
         padding: 12px 0;
         font-size: 1.1rem;
-    }
-
-    .nav-dropdown {
-        width: 100%;
-    }
-
-    .dropdown-content {
-        position: static;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.05);
-        margin-top: 10px;
-        padding: 10px 0;
-        display: none;
-        border-radius: 10px;
-    }
-
-    .nav-dropdown.active .dropdown-content {
-        display: block;
-    }
-
-    .dropdown-content a {
-        padding: 12px 20px;
-        font-size: 1rem;
-        color: #fff;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .dropdown-content a:last-child {
-        border-bottom: none;
-    }
-
-    .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.1);
     }
 }
 
