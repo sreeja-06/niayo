@@ -8,6 +8,7 @@ from routes.projects import projects_bp
 from routes.service_requests import service_requests_bp
 from routes.pricing import pricing_bp
 from routes.backend_images import backend_images_bp
+from routes.jobs import jobs_bp
 from flask_cors import CORS
 
 # Load environment variables from .env file
@@ -25,6 +26,7 @@ app.register_blueprint(projects_bp)
 app.register_blueprint(service_requests_bp)
 app.register_blueprint(pricing_bp)
 app.register_blueprint(backend_images_bp, url_prefix='/api')
+app.register_blueprint(jobs_bp, url_prefix='/api')
 
 @app.route('/')
 def home():

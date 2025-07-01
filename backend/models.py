@@ -145,3 +145,17 @@ class BackendImage(db.Model):
         self.filename = filename
         self.url = url
         self.description = description
+
+
+class Job(db.Model):
+    __tablename__ = 'jobs'
+    id = db.Column(db.Integer, primary_key=True)
+    job_name = db.Column(db.String(100), nullable=False)
+    category = db.Column(db.String(50), nullable=False)  # 'Job' or 'Internship'
+    required_skills = db.Column(db.Text, nullable=False)  # Comma-separated or JSON
+    title = db.Column(db.String(150), nullable=False)
+    location = db.Column(db.String(100), nullable=False)
+    experience = db.Column(db.String(50), nullable=False)
+    start_date = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
