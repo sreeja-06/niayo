@@ -20,4 +20,20 @@ def get_jobs():
             'description': job.description,
             'created_at': job.created_at.isoformat() if job.created_at else None
         })
-    return jsonify(result) 
+    return jsonify(result)
+
+@jobs_bp.route('/jobs/by-name/<job_name>', methods=['GET'])
+def get_job_by_name(job_name):
+    job = Job.query.filter_by(job_name=job_name).first()
+    if not job:
+        return jsonify({'error': 'Job not found'}), 404
+    return jsonify({
+        'job_name': job.job_name,
+        'required_skills': job.required_skills,
+        'description': job.description,
+        'title': job.title,
+        'category': job.category,
+        'location': job.location,
+        'experience': job.experience,
+        'start_date': job.start_date
+    }) 

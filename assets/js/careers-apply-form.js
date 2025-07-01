@@ -5,41 +5,32 @@ window.addEventListener('DOMContentLoaded', function() {
     const jobTitleEl = document.getElementById('job-title');
     if (jobTitleEl) jobTitleEl.textContent = post;
 
-    // Example job data (in real use, fetch from backend or map)
-    const jobData = {
-        'Frontend Developer': {
-            description: 'Build beautiful, responsive web interfaces using React, Vue, or Angular. Collaborate with designers and backend engineers.',
-            skills: ['HTML, CSS, JS', 'React/Vue/Angular', 'REST APIs', 'UI/UX', 'Teamwork']
-        },
-        'Backend Developer': {
-            description: 'Architect and develop robust backend systems using Node.js, Python, or Java. Work on APIs, databases, and cloud deployments.',
-            skills: ['Node.js/Python/Java', 'APIs', 'Databases', 'Cloud', 'Problem Solving']
-        },
-        'Marketing Intern': {
-            description: 'Assist in digital marketing campaigns, content creation, and social media management. Learn from industry experts.',
-            skills: ['Digital Marketing', 'Content Creation', 'Social Media', 'Communication', 'Creativity']
-        },
-        'Business Analyst Intern': {
-            description: 'Analyze business processes, gather requirements, and support project management for digital transformation projects.',
-            skills: ['Business Analysis', 'Requirement Gathering', 'Project Management', 'Excel', 'Analytical Thinking']
-        }
-    };
-    const job = jobData[post];
-    const descEl = document.getElementById('job-description');
-    if (descEl) descEl.textContent = job ? job.description : 'Description not available.';
-    const skillsList = document.getElementById('job-skills');
-    if (skillsList) {
-        skillsList.innerHTML = '';
-        if (job && job.skills) {
-            job.skills.forEach(skill => {
-                const li = document.createElement('li');
-                li.textContent = skill;
-                skillsList.appendChild(li);
-            });
-        } else {
-            skillsList.innerHTML = '<li>Skills not available.</li>';
-        }
-    }
+    // Fetch job data from backend by job_name
+    fetch(`http://127.0.0.1:5000/api/jobs/by-name/${encodeURIComponent(post)}`)
+        .then(res => res.json())
+        .then(job => {
+            const descEl = document.getElementById('job-description');
+            if (descEl) descEl.textContent = job.description || 'Description not available.';
+            const skillsList = document.getElementById('job-skills');
+            if (skillsList) {
+                skillsList.innerHTML = '';
+                if (job.required_skills) {
+                    job.required_skills.split(',').forEach(skill => {
+                        const li = document.createElement('li');
+                        li.textContent = skill.trim();
+                        skillsList.appendChild(li);
+                    });
+                } else {
+                    skillsList.innerHTML = '<li>Skills not available.</li>';
+                }
+            }
+        })
+        .catch(() => {
+            const descEl = document.getElementById('job-description');
+            if (descEl) descEl.textContent = 'Description not available.';
+            const skillsList = document.getElementById('job-skills');
+            if (skillsList) skillsList.innerHTML = '<li>Skills not available.</li>';
+        });
 
     // Basic form validation and submission
     const form = document.querySelector('.apply-form');
