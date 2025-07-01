@@ -1,22 +1,22 @@
 /* Premium Variables */
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --secondary-color: #64748b;
-    --accent-color: #3b82f6;
-    --text-color: #1e293b;
-    --text-light: #64748b;
-    --background: #f8fafc;
-    --card-bg: #ffffff;
-    --border-color: #e2e8f0;
-    --success-color: #22c55e;
-    --error-color: #ef4444;
+    --primary-color: #000;
+    --primary-dark: #222;
+    --secondary-color: #444;
+    --accent-color: #000;
+    --text-color: #111;
+    --text-light: #888;
+    --background: #fff;
+    --card-bg: #fff;
+    --border-color: #bbb;
+    --success-color: #222;
+    --error-color: #444;
     --transition-speed: 0.3s;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-    --gradient-hover: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    --gradient-primary: linear-gradient(135deg, #000 0%, #222 100%);
+    --gradient-hover: linear-gradient(135deg, #222 0%, #000 100%);
 }
 
 /* Application Section */
@@ -35,7 +35,7 @@
     left: 0;
     right: 0;
     height: 100%;
-    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 70%);
+    background: none;
     pointer-events: none;
 }
 
@@ -100,7 +100,7 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: var(--gradient-primary);
+    background: #000;
     border-radius: 2px;
 }
 
@@ -170,13 +170,13 @@
 }
 
 .file-upload-label:hover {
-    border-color: var(--primary-color);
-    background: rgba(37, 99, 235, 0.05);
+    border-color: #000;
+    background: #eee;
 }
 
 .file-upload-label i {
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: #000;
 }
 
 /* Checkbox Group */
@@ -197,18 +197,17 @@
 }
 
 .checkbox-group input[type="checkbox"]:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: #000;
 }
 
 .terms-link {
-    color: var(--primary-color);
+    color: #000;
     text-decoration: none;
     transition: color var(--transition-speed);
 }
 
 .terms-link:hover {
-    color: var(--primary-dark);
+    color: #222;
     text-decoration: underline;
 }
 
@@ -216,8 +215,8 @@
 .submit-btn {
     width: 100%;
     padding: 16px;
-    background: var(--gradient-primary);
-    color: white;
+    background: #000;
+    color: #fff;
     border: none;
     border-radius: 10px;
     font-size: 1.1rem;
@@ -245,9 +244,9 @@
 }
 
 .submit-btn:hover {
-    background: var(--gradient-hover);
+    background: #222;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .submit-btn:hover::before {
@@ -255,7 +254,7 @@
 }
 
 .submit-btn:disabled {
-    background: var(--secondary-color);
+    background: #444;
     cursor: not-allowed;
     transform: none;
 }
@@ -295,7 +294,7 @@
 }
 
 .job-details-section h3 {
-    color: var(--primary-color);
+    color: #000;
     margin-bottom: 15px;
     font-size: 1.3rem;
 }
@@ -310,8 +309,8 @@
 
 .skill-tag {
     padding: 8px 16px;
-    background: var(--gradient-primary);
-    color: white;
+    background: #000;
+    color: #fff;
     border-radius: 20px;
     font-size: 0.9rem;
     transition: transform var(--transition-speed);

@@ -200,13 +200,11 @@ body {
     transform: translateX(-50%);
     width: 90%;
     max-width: 1400px;
-    background: rgba(255, 255, 255, 0.1); /* Transparent background */
-    backdrop-filter: blur(10px); /* Blurry gloss effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    background: #000; /* Solid black background */
     border-radius: var(--border-radius);
     z-index: 1000;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border: 1px solid #222; /* Subtle border */
     transition: all var(--transition-speed);
 }
 
