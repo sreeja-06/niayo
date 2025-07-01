@@ -159,3 +159,17 @@ class Job(db.Model):
     start_date = db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
+
+
+class JobApplication(db.Model):
+    __tablename__ = 'job_applications'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    phone = db.Column(db.String(30), nullable=False)
+    experience = db.Column(db.String(50), nullable=False)
+    mode = db.Column(db.String(30), nullable=False)
+    message = db.Column(db.Text, nullable=True)
+    job_applied_for = db.Column(db.String(100), nullable=False)
+    cv_filename = db.Column(db.String(255), nullable=False)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())

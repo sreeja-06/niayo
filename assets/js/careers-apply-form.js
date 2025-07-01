@@ -46,9 +46,26 @@ window.addEventListener('DOMContentLoaded', function() {
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            // You can add AJAX submission here
-            alert('Application submitted! (Demo)');
-            form.reset();
+            const formData = new FormData(form);
+            // Add job_applied_for from job title
+            const jobTitle = document.getElementById('job-title')?.textContent || '';
+            formData.append('job_applied_for', jobTitle);
+            fetch('http://127.0.0.1:5000/api/job_applications', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert('Application submitted successfully!');
+                    form.reset();
+                } else {
+                    alert('Error: ' + (data.error || 'Unknown error'));
+                }
+            })
+            .catch(err => {
+                alert('Submission failed. Please try again.');
+            });
         });
     }
 });
