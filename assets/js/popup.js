@@ -1,6 +1,17 @@
 // Service request modal functionality
 document.addEventListener('DOMContentLoaded', function() {
     initializeServiceRequestModal();
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            // Only smooth scroll if the section exists and it's not a modal trigger
+            if (targetSection && !this.hasAttribute('data-modal')) {
+                e.preventDefault();
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
 });
 
 // Define company details data globally within popup.js
