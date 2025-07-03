@@ -92,7 +92,7 @@
     display: inline-block;
 }
 .project-card .view-project-btn:hover {
-    background: linear-gradient(90deg, #818cf8 60%, #000000 100%);
+    background: linear-gradient(90deg, #b5b5b5 60%, #000000 100%);
     box-shadow: 0 4px 16px rgba(99,102,241,0.16);
     transform: translateY(-2px) scale(1.04);
 }
@@ -377,14 +377,14 @@ body {
 }
 
 .landing-content h1 {
-    font-size: 4.5rem;
+    font-size: 4.3rem;
     margin-bottom: 30px;
     color: var(--text-color);
     font-weight: 800;
     line-height: 1.1;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.5s;
 }
 
 .taglines {
