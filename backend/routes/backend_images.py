@@ -31,10 +31,18 @@ def upload_backend_image():
     else:
         return jsonify({'error': 'Invalid file type'}), 400
 
-@backend_images_bp.route('/api/backend-images', methods=['GET'])
+@backend_images_bp.route('/backend-images', methods=['GET'])
 def get_backend_images():
     images = BackendImage.query.all()
-    result = [{'id': img.id, 'filename': img.filename, 'url': img.url, 'description': img.description} for img in images]
+    result = [
+        {
+            'id': img.id,
+            'filename': img.filename,
+            'url': img.url,
+            'description': img.description
+        }
+        for img in images
+    ]
     return jsonify(result)
 
 @backend_images_bp.route('/api/backend-images/<filename>', methods=['GET'])

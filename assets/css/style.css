@@ -988,6 +988,9 @@ section h2 {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .service-card:hover {
@@ -1018,6 +1021,10 @@ section h2 {
 }
 
 .service-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     padding: 25px;
     position: relative;
     z-index: 2;
@@ -1054,6 +1061,8 @@ section h2 {
 }
 
 .service-card .btn-primary {
+    margin-top: auto;
+    align-self: center;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -1069,7 +1078,7 @@ section h2 {
 
 .service-card .btn-primary:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .service-card .btn-primary i {

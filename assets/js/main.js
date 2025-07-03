@@ -162,7 +162,7 @@ async function loadPartners() {
     const partnersTrack = document.querySelector('.partners-track');
     if (!partnersTrack) return;
     try {
-        const res = await fetch('/api/backend-images');
+        const res = await fetch('http://127.0.0.1:5000/api/backend-images');
         const images = await res.json();
         partnersTrack.innerHTML = images.map(renderPartnerCard).join('');
     } catch (e) {

@@ -28,6 +28,9 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 .career-card:hover {
     transform: translateY(-10px);
@@ -74,6 +77,10 @@
 }
 .career-content {
     padding: 25px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .job-description {
     color: #636e72;
@@ -97,7 +104,11 @@
     color: #2d3436;
 }
 .career-footer {
-    margin-top: 20px;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 20px;
 }
 .career-card .btn-primary {
     display: inline-flex;
