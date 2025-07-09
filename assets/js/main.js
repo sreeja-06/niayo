@@ -94,10 +94,7 @@ function renderProjectCard(project) {
     return `
     <div class="project-card">
         <div class="project-image">
-            <img src="${project.image_url}" alt="${project.name}">
-            <div class="project-overlay">
-                <div class="project-category">${project.tags[0] || ''}</div>
-            </div>
+            <img src="${project.image_url}" alt="${project.name}" style="object-fit:cover;width:100%;height:100%;background:#000;" />
         </div>
         <div class="project-content">
             <h3>${project.name}</h3>
@@ -105,10 +102,6 @@ function renderProjectCard(project) {
             <div class="project-tags">
                 ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
             </div>
-            <a href="#" class="btn btn-primary">
-                View Project
-                <i class="fas fa-arrow-right"></i>
-            </a>
         </div>
     </div>
     `;

@@ -1,162 +1,125 @@
 /* --- Modern & Stylish Project Card Styles --- */
 .projects-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-    justify-content: center;
-    align-items: stretch;
-    padding: 2rem 0;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 0;
 }
 
 .project-card {
-    background: linear-gradient(135deg, #f8fafc 60%, #e0e7ff 100%);
-    border-radius: 2rem;
-    box-shadow: 0 8px 32px rgba(60, 72, 100, 0.13), 0 1.5px 8px rgba(60, 72, 100, 0.08);
-    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    min-width: 320px;
-    max-width: 370px;
-    width: 100%;
-    margin: 1rem;
-    transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+    background: #111;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+    min-height: 260px;
+    border: 1.5px solid #222;
     position: relative;
 }
 .project-card:hover {
     transform: translateY(-8px) scale(1.025);
-    box-shadow: 0 16px 48px rgba(60, 72, 100, 0.18), 0 2px 12px rgba(60, 72, 100, 0.10);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
 }
 
-.project-card .project-image {
+.project-image {
+    flex: 0 0 340px;
+    background: #000;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 200px;
+}
+.project-image img {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: cover;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    box-shadow: 0 2px 12px rgba(60, 72, 100, 0.08);
+    border-radius: 0;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+    background: #000;
+}
+.project-card:hover .project-image img {
+    transform: scale(1.06);
 }
 
-.project-card .project-content {
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
+.project-content {
+    flex: 1;
+    padding: 40px 32px 32px 32px;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    justify-content: center;
+    background: #111;
 }
-
-.project-card .project-title {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: #2d3651;
-    margin-bottom: 0.5rem;
+.project-content h3 {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 18px;
     letter-spacing: 0.01em;
+    position: relative;
 }
-
-.project-card .project-description {
-    font-size: 1rem;
-    color: #4b5563;
-    margin-bottom: 1.1rem;
-    min-height: 60px;
+.project-content h3::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: #fff;
+    margin-top: 8px;
+    border-radius: 2px;
 }
-
-.project-card .project-tags {
+.project-content p {
+    color: #e0e0e0;
+    margin-bottom: 24px;
+    font-size: 1.13rem;
+    line-height: 1.7;
+}
+.project-tags {
     display: flex;
+    gap: 12px;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0;
 }
-.project-card .project-tag {
-    background: #000000;
-    color: #fff;
-    font-size: 0.85rem;
-    padding: 0.25rem 0.85rem;
-    border-radius: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    box-shadow: 0 1px 4px rgba(99,102,241,0.08);
-}
-
-.project-card .view-project-btn {
-    margin-top: auto;
-    background: linear-gradient(90deg, #000000 60%, #c0c0c0 100%);
-    color: #fff;
-    font-weight: 600;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 0.7rem 2.2rem;
+.project-tags span {
+    background: #fff;
+    color: #111;
+    padding: 8px 20px;
+    border-radius: 30px;
     font-size: 1rem;
-    box-shadow: 0 2px 8px rgba(99,102,241,0.10);
-    cursor: pointer;
-    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
-    outline: none;
-    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, color 0.2s;
 }
-.project-card .view-project-btn:hover {
-    background: linear-gradient(90deg, #b5b5b5 60%, #000000 100%);
-    box-shadow: 0 4px 16px rgba(99,102,241,0.16);
-    transform: translateY(-2px) scale(1.04);
+.project-tags span:hover {
+    background: #111;
+    color: #fff;
+    border: 1.5px solid #fff;
 }
 
 @media (max-width: 900px) {
     .projects-grid {
-        gap: 1.2rem;
-        padding: 1rem 0;
+        gap: 28px;
+        padding: 16px 0;
     }
-    .project-card {
-        min-width: 90vw;
-        max-width: 98vw;
-        margin: 0.5rem auto;
-    }
-    .project-card .project-content {
-        padding: 1.2rem 1rem 1rem 1rem;
-    }
-}
-/* --- Fix for View Project button visibility in project cards --- */
-.projects-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: stretch;
-}
-
-.project-card {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    min-height: 320px;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
-    overflow: visible;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.project-card .project-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-}
-
-.project-card .view-project-btn {
-    margin-top: 2rem;
-    width: fit-content;
-    align-self: flex-start;
-}
-
-@media (max-width: 768px) {
     .project-card {
         flex-direction: column;
-        align-items: center;
-        padding: 1rem;
+        min-width: 0;
+        max-width: 98vw;
+        margin: 0 auto;
     }
-    .project-card .view-project-btn {
-        margin-top: 1rem;
-        width: 100%;
-        align-self: stretch;
+    .project-image {
+        min-height: 180px;
+        flex: 0 0 180px;
+    }
+    .project-content {
+        padding: 28px 18px 18px 18px;
+    }
+    .project-content h3 {
+        font-size: 1.3rem;
     }
 }
 /* Global Styles */
@@ -1593,198 +1556,6 @@ section h2 {
 }
 
 @media (max-width: 480px) {
-    .ceo-message-section {
-        padding: 60px 0;
-    }
-
-    .ceo-message-section .section-title {
-        font-size: 1.8rem;
-    }
-
-    .ceo-message-section .section-subtitle {
-        font-size: 1rem;
-    }
-
-    .ceo-image-wrapper {
-        padding: 15px;
-    }
-
-    .ceo-text-wrapper {
-        padding: 25px;
-    }
-
-    .ceo-text .message {
-        font-size: 1.1rem;
-    }
-
-    .ceo-text .message-extended {
-        font-size: 0.95rem;
-    }
-
-    .ceo-info h3 {
-        font-size: 1.4rem;
-    }
-
-    .ceo-social {
-        gap: 10px;
-        justify-content: center;
-    }
-
-    .ceo-social .social-link {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
-
-    .social-label {
-        display: none;
-    }
-
-    .ceo-stats {
-        padding: 20px 10px 10px;
-    }
-
-    .stat-number {
-        font-size: 1.4rem;
-    }
-
-    .stat-label {
-        font-size: 0.8rem;
-    }
-}
-
-/* Social Media Section */
-.social-media-section {
-    padding: 80px 0;
-    background: #ffffff;
-    position: relative;
-}
-
-.social-media-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 50px;
-    font-weight: 700;
-}
-
-.social-media-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.social-media-video {
-    width: 100%;
-    max-width: 800px;
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(3, 1, 1, 0.1);
-}
-
-.social-media-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 15px;
-}
-
-.social-media-handles h3 {
-    color: #0f0e0e;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-.social-links.large-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.social-links.large-links .social-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #000000, #ffffff);
-    border-radius: 25px;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.social-links.large-links .social-link i {
-    font-size: 1.2rem;
-    color: #ffffff;
-}
-
-.social-links.large-links .social-link:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(135deg, #ffffff, #000000);
-    color: #000000;
-}
-
-.social-links.large-links .social-link:hover i {
-    color: #000000;
-}
-
-.social-links.large-links .social-link span {
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-/* Responsive for Social Media Section */
-@media (max-width: 768px) {
-    .social-media-section {
-        padding: 60px 0;
-    }
-
-    .social-media-section h2 {
-        font-size: 2rem;
-    }
-
-    .social-media-content {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .social-media-handles h3 {
-        font-size: 1.5rem;
-    }
-
-    .social-links.large-links {
-        gap: 15px;
-    }
-
-    .social-links.large-links .social-link {
-        padding: 10px 16px;
-        font-size: 0.9rem;
-    }
-
-    .social-links.large-links .social-link i {
-        font-size: 1rem;
-    }
-
-    .social-links.large-links .social-link span {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
     .social-links.large-links {
         gap: 10px;
         justify-content: center;
@@ -2931,7 +2702,7 @@ section h2 {
   z-index: 4;
 }
 .join-brief-btn:hover {
-  background: linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%);
+  background: linear-gradient(90deg, #fc5c7d 0%, #000000 100%);
   color: #fff !important;
   box-shadow: 0 8px 32px 0 rgba(252, 92, 125, 0.18);
   transform: scale(1.04);
